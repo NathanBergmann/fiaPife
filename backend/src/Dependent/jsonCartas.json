@@ -51,6 +51,6 @@
   {"numero": "J", "naipe": "Ouros"},
   {"numero": "Q", "naipe": "Ouros"},
   {"numero": "K", "naipe": "Ouros"},
-  {"numero": "Joker", "naipe": "Vermelho"}
-  {"numero": "Joker", "naipe": "Preto"},
+  {"numero": "Joker", "naipe": "Vermelho"},
+  {"numero": "Joker", "naipe": "Preto"}
 ]
