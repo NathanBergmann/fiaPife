@@ -1,4 +1,4 @@
-package Entities;
+package br.univille.backend.Entities;
 
 public class Cards {
 
