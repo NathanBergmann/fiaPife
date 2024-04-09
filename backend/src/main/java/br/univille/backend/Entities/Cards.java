@@ -31,6 +31,8 @@ public class Cards {
     public void setDisponivel(boolean isDisponivel) {
         this.isDisponivel = isDisponivel;
     }
-
+    public String toString(){
+        return getNumero()+ " de " + getNaipe();
+    }
 
 }
