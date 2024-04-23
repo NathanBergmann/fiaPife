@@ -25,13 +25,19 @@ public class Player {
         return wins;
     }
     
-    public void setNewCard(){
+    public void setNewCard(Cards newCard){
+        for (int i = 0; i < 10; i++){
+            if (cards[i] == null){
+                cards[i] = newCard;
+                return;
+            }
+        }
     }
-
-    public void getLastCardPlayed(){
-
+    public Cards discardCard(int index){
+        Cards returnCard = cards[index];
+        cards[index] = null;
+        return returnCard;
     }
-
     public void calculateCombinations(){
 
     }
