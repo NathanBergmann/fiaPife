@@ -1,6 +1,7 @@
 package br.univille.backend.Entities;
 
 import java.util.ArrayList;
+import java.util.Random;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -15,7 +16,6 @@ public class Deck {
     
     public void deckLaunch(){
         File file = new File("src/main/resources/jsonCartas.json");
-        System.out.println(file.getAbsolutePath());
         try (JsonReader reader = Json.createReader(new FileReader(file.getAbsolutePath()))){
             // Lê o JSON em um objeto JsonObject
             JsonArray cartas = reader.readArray();
@@ -43,7 +43,27 @@ public class Deck {
         this.deck.add(card);
     }
 
+    public boolean cardIsAvailable(int index){
+        return deck.get(index).isDisponivel();
+    }
     
+    public Cards deliveCards(){
+        Random random = new Random();
+        int countCards = 0;
+        while (countCards < 53){
+            int randomCardIndex =   random.nextInt(53);
+            if (cardIsAvailable(randomCardIndex)){
+                Cards card = cardsDistribute(randomCardIndex);
+                return card;
+            }
+            else {
+                countCards ++;
+                continue;
+            }
+        }
+        System.out.println("Todas as cartas estão indisponiveis");
+        return cardsDistribute(countCards);
+    }
 
     
 }
