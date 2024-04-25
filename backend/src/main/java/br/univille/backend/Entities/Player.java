@@ -41,6 +41,15 @@ public class Player {
 
     
     public Cards[] getCards() {
-        return cards;
+        return this.cards;
+    }
+
+    public String viewAllCards(){
+        String txtReturn = "";
+        for(int i=0; i< 9;){
+			txtReturn +=  this.cards[i].toString() + " | "; 
+            i ++;
+		}
+        return txtReturn;
     }
 }

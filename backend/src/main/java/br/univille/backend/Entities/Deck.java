@@ -56,7 +56,6 @@ public class Deck {
                 return card;
             }
             else {
-                System.out.println("Carta está indisponivel: "+ cardsDistribute(randomCardIndex));
                 countCards ++;
                 continue;
             }
