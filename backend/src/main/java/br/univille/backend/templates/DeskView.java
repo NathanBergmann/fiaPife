@@ -6,5 +6,11 @@ public class DeskView {
         
         return "string";
     }
+
+    public String textWelcome(){
+        String textWelcome = ("\n------------------ AI PIFE ------------------\n");
+        textWelcome = textWelcome + "\nAutores: Luiza Kohn & Nathan Bergmann; \n \n";
+        return textWelcome;
+    }
     
 }
