@@ -15,7 +15,10 @@ public class Main {
 	public static void startGame(Player player){
 		Deck deck = new Deck();
 		deck.deckLaunch();
-		player.setNewCard(deck.deliveCards());
+		for(int i=0; i< 9;){
+			player.setNewCard(deck.deliveCards());
+			i ++;
+		}
 	}
 
 	public static void main(String[] args){
@@ -32,26 +35,9 @@ public class Main {
 		startGame(playerAI);
 		startGame(playerOne);
 
-		System.out.println(playerAI.getCards());
-		// game.startGame();
-		/*Scanner scanner = new Scanner(System.in);
-
-		System.out.println("Informe o nome do Primeiro Jogador: ");
-		namePlayer = scanner.nextLine();
-		Player player1 = new Player(namePlayer);
-		Player iaPlayer = new Player("IA");
-		*/
-		/*
-		Cards[] mao1 = new Cards[9];
-		Cards[] mao2 = new Cards[9];
+		System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
+		System.out.println("Cartas IA: \n"+playerOne.viewAllCards());
 		
-		System.out.println("---------------");
-		for(int i=0; i< 9;){
-			mao2[i] = deck.deliveCards();
-			System.out.println(mao2[i]);
-			i ++;
-		}
-*/
 
 	}
 
