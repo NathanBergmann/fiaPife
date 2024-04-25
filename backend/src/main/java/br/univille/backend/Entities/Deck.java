@@ -50,12 +50,13 @@ public class Deck {
         Random random = new Random();
         int countCards = 0;
         while (countCards < 53){
-            int randomCardIndex =   random.nextInt(53);
+            int randomCardIndex = random.nextInt(53);
             if (cardIsAvailable(randomCardIndex)){
                 Cards card = cardsDistribute(randomCardIndex);
                 return card;
             }
             else {
+                System.out.println("Carta está indisponivel: "+ cardsDistribute(randomCardIndex));
                 countCards ++;
                 continue;
             }
