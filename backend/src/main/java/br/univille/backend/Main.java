@@ -10,16 +10,12 @@ import java.util.Scanner;
 public class Main {
 	public static Player playerAI = new Player("The Best IA");
 	public static Player playerOne = new Player("Desafiante");
-	
-
-	public static void startGame(Player player){
-		Deck deck = new Deck();
-		deck.deckLaunch();
-		player.setNewCard(deck.deliveCards());
-	}
-
+	public static Deck deck = new Deck();
 	public static void main(String[] args){
-		// Game game = new Game();
+		Game game = new Game();
+		DeskPile deskPile = new DeskPile();
+
+		deck.deckLaunch();
         DeskView view = new DeskView();
         Scanner scanner = new Scanner(System.in);
 
@@ -29,29 +25,12 @@ public class Main {
 		playerOne.setName(scanner.nextLine());
 		System.out.println("\nConfronto entre: \'"+playerOne.getName()+"\' X \'"+ playerAI.getName()+"\'");
 		
-		startGame(playerAI);
-		startGame(playerOne);
-
-		System.out.println(playerAI.getCards());
-		// game.startGame();
-		/*Scanner scanner = new Scanner(System.in);
-
-		System.out.println("Informe o nome do Primeiro Jogador: ");
-		namePlayer = scanner.nextLine();
-		Player player1 = new Player(namePlayer);
-		Player iaPlayer = new Player("IA");
-		*/
-		/*
-		Cards[] mao1 = new Cards[9];
-		Cards[] mao2 = new Cards[9];
+		game.startRound(deck, deskPile, playerOne, playerAI);
 		
-		System.out.println("---------------");
-		for(int i=0; i< 9;){
-			mao2[i] = deck.deliveCards();
-			System.out.println(mao2[i]);
-			i ++;
-		}
-*/
+		System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
+		System.out.println("Cartas IA: \n"+playerOne.viewAllCards());
+
+		
 
 	}
 

@@ -29,7 +29,6 @@ public class Deck {
                 addCard(newCard);
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -57,13 +56,19 @@ public class Deck {
                 return card;
             }
             else {
-                System.out.println("Carta está indisponivel: "+ cardsDistribute(randomCardIndex));
                 countCards ++;
                 continue;
             }
         }
         System.out.println("Todas as cartas estão indisponiveis");
         return cardsDistribute(countCards);
+    }
+
+    public void resetAvailable(){
+        for (Cards card : deck){
+            card.setDisponivel(true);
+        }
+        return;
     }
 
     

@@ -38,11 +38,18 @@ public class Player {
         cards[index] = null;
         return returnCard;
     }
-    public void calculateCombinations(){
 
+    
+    public Cards[] getCards() {
+        return this.cards;
     }
 
-    public Cards[] getCards() {
-        return cards;
+    public String viewAllCards(){
+        String txtReturn = "";
+        for(int i=0; i< 9;){
+			txtReturn +=  this.cards[i].toString() + " | "; 
+            i ++;
+		}
+        return txtReturn;
     }
 }
