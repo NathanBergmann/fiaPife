@@ -10,19 +10,12 @@ import java.util.Scanner;
 public class Main {
 	public static Player playerAI = new Player("The Best IA");
 	public static Player playerOne = new Player("Desafiante");
-	
-
-	public static void startGame(Player player){
-		Deck deck = new Deck();
-		deck.deckLaunch();
-		for(int i=0; i< 9;){
-			player.setNewCard(deck.deliveCards());
-			i ++;
-		}
-	}
-
+	public static Deck deck = new Deck();
 	public static void main(String[] args){
-		// Game game = new Game();
+		Game game = new Game();
+		DeskPile deskPile = new DeskPile();
+
+		deck.deckLaunch();
         DeskView view = new DeskView();
         Scanner scanner = new Scanner(System.in);
 
@@ -32,11 +25,11 @@ public class Main {
 		playerOne.setName(scanner.nextLine());
 		System.out.println("\nConfronto entre: \'"+playerOne.getName()+"\' X \'"+ playerAI.getName()+"\'");
 		
-		startGame(playerAI);
-		startGame(playerOne);
-
+		game.startRound(deck, deskPile, playerOne, playerAI);
+		
 		System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
 		System.out.println("Cartas IA: \n"+playerOne.viewAllCards());
+
 		
 
 	}

@@ -28,4 +28,11 @@ public class DeskPile {
     public boolean isFull(){
         return (topo == 35);
     }
+    public void resetPile(){
+        for (int j = 0; j < 36; j++){
+            deskPile[j] = null;
+        }
+        topo = -1;
+        return;
+    }
 }
