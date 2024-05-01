@@ -38,10 +38,8 @@ public class Player {
         cards[index] = null;
         return returnCard;
     }
-    public void calculateCombinations(){
 
-    }
-
+    
     public Cards[] getCards() {
         return this.cards;
     }
