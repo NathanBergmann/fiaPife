@@ -64,5 +64,12 @@ public class Deck {
         return cardsDistribute(countCards);
     }
 
+    public void resetAvailable(){
+        for (Cards card : deck){
+            card.setDisponivel(true);
+        }
+        return;
+    }
+
     
 }
