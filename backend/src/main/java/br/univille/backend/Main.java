@@ -11,6 +11,7 @@ public class Main {
 	public static Player playerAI = new Player("The Best IA");
 	public static Player playerOne = new Player("Desafiante");
 	public static Deck deck = new Deck();
+	public static boolean endGame = false;
 	public static void main(String[] args){
 		Game game = new Game();
 		DeskPile deskPile = new DeskPile();
@@ -27,7 +28,20 @@ public class Main {
 		
 		game.startRound(deck, deskPile, playerOne, playerAI);
 		
-		System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
+		while (!endGame){
+			game.play(deck, deskPile, playerAI);
+			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
+			game.discardCard(deck, deskPile, playerAI);
+			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
+
+
+			game.play(deck, deskPile, playerOne);
+			game.discardCard(deck, deskPile, playerAI);
+			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
+
+		}
+
+
 		System.out.println("Cartas IA: \n"+playerOne.viewAllCards());
 
 		

@@ -46,10 +46,23 @@ public class Player {
 
     public String viewAllCards(){
         String txtReturn = "";
-        for(int i=0; i< 9;){
-			txtReturn +=  this.cards[i].toString() + " | "; 
+        String txtAux = "";
+        String txtFormat = "";
+        for(int i=0; i< 10;){
+            txtFormat = (this.cards[i] == null ? "" : this.cards[i].toString() + " | ");
+			txtReturn += txtFormat ;
             i ++;
+            int comprimento = txtFormat.length();
+            int meioDaPosicao = (comprimento / 2);
+
+            for (int countSeparador=0; countSeparador< comprimento;countSeparador++){
+               if (countSeparador == meioDaPosicao){
+                    txtAux = (txtAux+=i) ;
+               } else {
+                    txtAux = txtAux+= " ";
+               }
+            }
 		}
-        return txtReturn;
+        return txtReturn +"\n"+ txtAux;
     }
 }
