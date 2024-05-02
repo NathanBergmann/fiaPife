@@ -20,6 +20,9 @@ public class DeskPile {
 
     }
     public Cards top(){
+        if (isEmpty()) {
+            return null;
+        }
         return deskPile[topo];
     }
     public boolean isEmpty(){
