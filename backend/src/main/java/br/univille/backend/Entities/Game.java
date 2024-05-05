@@ -21,22 +21,21 @@ public class Game {
         if(!deskPile.isEmpty()){
             System.out.println("\nCarta da mesa: " + deskPile.top().toString());
         }
-        System.out.println("Comprar carta da mesa (0) ou Comprar do monte (1)");
         Cards newCard;
         int choice = scanner.nextInt();
         if (choice == 0){
             newCard = deskPile.pop();
+            System.out.println("Jogador "+ player.getName() + " Comprou carta da mesa.");
         }
         else{
             newCard = deck.deliveCards();
+            System.out.println("Jogador "+ player.getName() + " Comprou carta do Monte.");
         }
         player.setNewCard(newCard);
         return;
     }
 
     public void discardCard (Deck deck, DeskPile deskPile,Player player){
-        System.out.println("Cartas Player: " + player.getName() + "\n"+ player.viewAllCards()+"\n");
-        System.out.println("Escolha uma carta para descartar, utilize os numeros de 1 à 10");
         int positionCard = scanner.nextInt();
         deskPile.push(player.discardCard(positionCard -1));
     }
