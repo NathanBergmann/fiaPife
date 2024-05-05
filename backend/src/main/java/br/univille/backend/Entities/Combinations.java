@@ -1,4 +1,4 @@
-package br.univille.backend.Entities;
+package br.univille.backend.entities;
 
 public class Combinations {
     

@@ -1,7 +1,8 @@
 package br.univille.backend;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import br.univille.backend.Entities.*;
+
+import br.univille.backend.entities.*;
 import br.univille.backend.templates.DeskView;
 import java.util.Scanner;
 

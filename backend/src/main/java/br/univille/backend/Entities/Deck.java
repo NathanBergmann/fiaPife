@@ -1,4 +1,4 @@
-package br.univille.backend.Entities;
+package br.univille.backend.entities;
 
 import java.util.ArrayList;
 import java.util.Random;
