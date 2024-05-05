@@ -25,7 +25,8 @@ public class Deck {
                 // Obtém o número e o naipe da carta
                 String numero = carta.getString("numero");
                 String naipe = carta.getString("naipe");
-                Cards newCard = new Cards(naipe, numero);
+                int sequencia = carta.getInt("seq");
+                Cards newCard = new Cards(naipe, numero, sequencia);
                 addCard(newCard);
             }
         } catch (FileNotFoundException e) {
