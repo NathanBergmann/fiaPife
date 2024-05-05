@@ -14,13 +14,14 @@ public class Game {
             player2.setNewCard(deck.deliveCards());
             i ++;
         }
+        deskPile.push(deck.deliveCards());
     }
 
     public void play(Deck deck, DeskPile deskPile,Player player){
-        System.out.println("Comprar carta da mesa (0) ou Comprar do monte (1)");
         if(!deskPile.isEmpty()){
-            System.out.println("Carta da mesa: " + deskPile.top().toString());
+            System.out.println("\nCarta da mesa: " + deskPile.top().toString());
         }
+        System.out.println("Comprar carta da mesa (0) ou Comprar do monte (1)");
         Cards newCard;
         int choice = scanner.nextInt();
         if (choice == 0){
@@ -34,11 +35,10 @@ public class Game {
     }
 
     public void discardCard (Deck deck, DeskPile deskPile,Player player){
+        System.out.println("Cartas Player: " + player.getName() + "\n"+ player.viewAllCards()+"\n");
         System.out.println("Escolha uma carta para descartar, utilize os numeros de 1 à 10");
         int positionCard = scanner.nextInt();
-        player.discardCard(positionCard -1);
-        
-
+        deskPile.push(player.discardCard(positionCard -1));
     }
     
 }

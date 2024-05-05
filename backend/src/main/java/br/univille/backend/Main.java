@@ -29,12 +29,11 @@ public class Main {
 		game.startRound(deck, deskPile, playerOne, playerAI);
 		
 		while (!endGame){
-			game.play(deck, deskPile, playerAI);
-			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
-			game.discardCard(deck, deskPile, playerAI);
-			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
-
-
+			System.out.println("\nCartas Player: " + playerOne.getName() +"\n"+ playerAI.viewAllCards()+"\n");
+			game.play(deck, deskPile, playerOne);
+			game.discardCard(deck, deskPile, playerOne);
+			System.out.println("Cartas Player: \n"+ playerOne.viewAllCards()+"\n");
+			//Logica da IA
 			game.play(deck, deskPile, playerOne);
 			game.discardCard(deck, deskPile, playerAI);
 			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
