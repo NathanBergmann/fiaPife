@@ -1,13 +1,15 @@
 package br.univille.backend;
+import java.util.Scanner;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.univille.backend.entities.*;
+import br.univille.backend.entities.Deck;
+import br.univille.backend.entities.DeskPile;
+import br.univille.backend.entities.Game;
+import br.univille.backend.entities.Player;
 import br.univille.backend.templates.DeskView;
-import java.util.Scanner;
 
 
-@SpringBootApplication
 public class Main {
 	public static Player playerAI = new Player("The Best IA");
 	public static Player playerOne = new Player("Desafiante");
@@ -38,16 +40,8 @@ public class Main {
 			game.discardCard(deck, deskPile, playerOne);
 
 			
-			// System.out.println("Cartas Player: \n"+ playerOne.viewAllCards()+"\n");
-			//Logica da IA
-		/*	game.play(deck, deskPile, playerOne);
-			game.discardCard(deck, deskPile, playerAI);
-			System.out.println("Cartas Player: \n"+ playerAI.viewAllCards()+"\n");
-*/
 		}
 
-
-		System.out.println("Cartas IA: \n"+playerOne.viewAllCards());
 
 		
 
