@@ -1,8 +1,13 @@
 package br.univille.backend;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import org.hibernate.id.uuid.LocalObjectUuidHelper;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.univille.backend.entities.Cards;
+import br.univille.backend.entities.Combinations;
 import br.univille.backend.entities.Deck;
 import br.univille.backend.entities.DeskPile;
 import br.univille.backend.entities.Game;
@@ -30,6 +35,7 @@ public class Main {
 		System.out.println("\nConfronto entre: \'"+playerOne.getName()+"\' X \'"+ playerAI.getName()+"\'");
 		
 		game.startRound(deck, deskPile, playerOne, playerAI);
+		Combinations validator = new Combinations();
 		
 		while (!endGame){
 			System.out.println("\nCartas Player: " + playerOne.getName() +"\n"+ playerOne.viewAllCards()+"\n");
@@ -38,7 +44,10 @@ public class Main {
 			System.out.println("Cartas Player: " + playerOne.getName() + "\n"+ playerOne.viewAllCards()+"\n");
         	System.out.println("Escolha uma carta para descartar, utilize os numeros de 1 à 10");
 			game.discardCard(deck, deskPile, playerOne);
-
+			List<List<Cards>> combinacoesValidas = validator.validCombinations(playerOne.getCards());
+			/*for (List<Cards> combinacao : combinacoesValidas){
+				System.out.println(combinacao);
+			}*/
 			
 		}
 
