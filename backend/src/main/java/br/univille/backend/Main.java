@@ -40,19 +40,19 @@ public class Main {
 		game.startRound(deck, deskPile, playerOne, playerAI);
 		Combinations validator = new Combinations();
 
-    boolean isAiTurn = false;
+    	boolean isAiTurn = false;
 		AiChoice aiPlayer = new AiChoice();
 		Random random = new Random();
+		
     
 		while (!endGame){
 			if (isAiTurn){
-				System.out.println("Comprar carta da mesa (0) ou Comprar do monte (1)");
 				int choiceBuy = aiPlayer.BuyFromDeskPileOrDeck(deck, deskPile, playerAI);
 				game.play(deck, deskPile, playerAI, true, choiceBuy);
-				System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
-				int randomCardIndex = random.nextInt(10);
-				game.discardCard(deck, deskPile, playerAI, true, randomCardIndex);
-				System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
+				//System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
+				int randomCardIndex = random.nextInt(9);
+				game.discardCard(deck, deskPile, playerAI, true, (randomCardIndex + 1));
+				//System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
 				endGame = validator.isWinner(playerAI.getCards());
 				
 			}else{
