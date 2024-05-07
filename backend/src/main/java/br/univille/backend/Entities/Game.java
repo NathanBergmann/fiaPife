@@ -17,12 +17,17 @@ public class Game {
         deskPile.push(deck.deliveCards());
     }
 
-    public void play(Deck deck, DeskPile deskPile,Player player){
+    public void play(Deck deck, DeskPile deskPile,Player player, Boolean isAI, int AiChoice){
         if(!deskPile.isEmpty()){
             System.out.println("\nCarta da mesa: " + deskPile.top().toString());
         }
         Cards newCard;
-        int choice = scanner.nextInt();
+        int choice;
+        if (isAI){
+            choice = AiChoice;
+        }else{
+           choice = scanner.nextInt();
+        }
         if (choice == 0){
             newCard = deskPile.pop();
             System.out.println("Jogador "+ player.getName() + " Comprou carta da mesa.");
@@ -35,8 +40,13 @@ public class Game {
         return;
     }
 
-    public void discardCard (Deck deck, DeskPile deskPile,Player player){
-        int positionCard = scanner.nextInt();
+    public void discardCard (Deck deck, DeskPile deskPile,Player player, Boolean isAI, int AiChoice){
+        int positionCard;
+        if (isAI){
+            positionCard = AiChoice;
+        }else{
+            positionCard = scanner.nextInt();
+        }
         deskPile.push(player.discardCard(positionCard -1));
     }
     
