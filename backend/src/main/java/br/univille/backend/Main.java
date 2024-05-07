@@ -25,6 +25,7 @@ public class Main {
 		DeskPile deskPile = new DeskPile();
 
 		deck.deckLaunch();
+		
         DeskView view = new DeskView();
         Scanner scanner = new Scanner(System.in);
 
@@ -36,24 +37,34 @@ public class Main {
 		
 		game.startRound(deck, deskPile, playerOne, playerAI);
 		Combinations validator = new Combinations();
-		boolean isAiTurn = true;
+		boolean isAiTurn = false;
 		
 		while (!endGame){
 			if (isAiTurn){
 			
 			}else{
-			System.out.println("\nCartas Player: " + playerOne.getName() +"\n"+ playerOne.viewAllCards()+"\n");
-			System.out.println("Comprar carta da mesa (0) ou Comprar do monte (1)");
-			game.play(deck, deskPile, playerOne);
-			System.out.println("Cartas Player: " + playerOne.getName() + "\n"+ playerOne.viewAllCards()+"\n");
-        	System.out.println("Escolha uma carta para descartar, utilize os numeros de 1 à 10");
-			game.discardCard(deck, deskPile, playerOne);
-			endGame = validator.isWinner(playerOne.getCards());
-			if (endGame){
-				System.out.println(playerOne.getName()+ " ganhou!");
+				System.out.println("\nCartas Player: " + playerOne.getName() +"\n"+ playerOne.viewAllCards()+"\n");
+				System.out.println("Comprar carta da mesa (0) ou Comprar do monte (1)");
+				game.play(deck, deskPile, playerOne);
+
+				System.out.println("Cartas Player: " + playerOne.getName() + "\n"+ playerOne.viewAllCards()+"\n");
+				System.out.println("Escolha uma carta para descartar, utilize os numeros de 1 à 10");
+				game.discardCard(deck, deskPile, playerOne);
+
+				endGame = validator.isWinner(playerOne.getCards());
+
+				if (endGame){
+					System.out.println(playerOne.getName()+ " ganhou!");
+				}
 			}
+			if (deskPile.isFull()){
+				Cards topCard = deskPile.pop();
+				while (!deskPile.isEmpty()){
+					Cards resetCard = deskPile.pop();
+					resetCard.setDisponivel(true);
+				}
+				deskPile.push(topCard);
 			}
-			
 			isAiTurn = !isAiTurn;
 		}
 
