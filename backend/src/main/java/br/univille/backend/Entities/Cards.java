@@ -5,10 +5,11 @@ public class Cards {
     private String naipe;
     private String numero;
     private int sequencia;
+    private int peso;
     private boolean isDisponivel;
 
     
-    public Cards(String naipe, String numero, int sequencia) {
+    public Cards(String naipe, String numero, int sequencia, int peso) {
         setDisponivel(true);
         setNumero(numero);
         setNaipe(naipe);
@@ -21,6 +22,14 @@ public class Cards {
 
     public void setSequencia(int sequencia) {
         this.sequencia = sequencia;
+    }
+
+    public void setPeso(int peso) {
+        this.peso += peso;
+    }
+
+    public int getPeso(){
+        return peso;
     }
 
     public String getNaipe() {
