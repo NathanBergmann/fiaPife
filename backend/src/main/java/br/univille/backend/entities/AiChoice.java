@@ -1,6 +1,5 @@
 package br.univille.backend.entities;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +16,7 @@ public class AiChoice {
             if (cards.get(i) == null){
                 continue;
             }
+            cards.get(i).resetPeso();
            verificaSequencia(cards, cards.get(i));
            verificaCombinação(cards, cards.get(i));
            if (i == 0){
@@ -62,7 +62,7 @@ public class AiChoice {
                 continue;
             }
             if (Math.abs(cartas.get(i).getSequencia() - cartaAtual.getSequencia()) == 0 && cartas.get(i).getNaipe() != cartaAtual.getNaipe()) {
-                cartaAtual.setPeso(2);
+                cartaAtual.setPeso(1);
                 return true;
             }
         }

@@ -20,6 +20,9 @@ public class Cards {
         return sequencia;
     }
 
+    public void resetPeso(){
+        this.peso = 0;
+    }
     public void setSequencia(int sequencia) {
         this.sequencia = sequencia;
     }
