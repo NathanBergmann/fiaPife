@@ -53,7 +53,7 @@ public class Main {
 				int randomCardIndex = random.nextInt(10);
 				game.discardCard(deck, deskPile, playerAI, true, randomCardIndex);
 				System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
-				endGame = validator.isWinner(playerOne.getCards());
+				endGame = validator.isWinner(playerAI.getCards());
 				
 			}else{
 				System.out.println("\nCartas Player: " + playerOne.getName() +"\n"+ playerOne.viewAllCards()+"\n");
@@ -63,12 +63,13 @@ public class Main {
 				System.out.println("Cartas Player: " + playerOne.getName() + "\n"+ playerOne.viewAllCards()+"\n");
 				System.out.println("Escolha uma carta para descartar, utilize os numeros de 1 à 10");
 				
-        game.discardCard(deck, deskPile, playerOne, false, 0);
-				
-        endGame = validator.isWinner(playerOne.getCards());
-				
-        if (endGame){
-				System.out.println(playerOne.getName()+ " ganhou!");
+        		game.discardCard(deck, deskPile, playerOne, false, 0);
+			}
+
+			endGame = validator.isWinner(playerOne.getCards());
+					
+			if (endGame){
+					System.out.println(playerOne.getName()+ " ganhou!");
 			}
 			if (deskPile.isFull()){
 				Cards topCard = deskPile.pop();
@@ -79,7 +80,7 @@ public class Main {
 				deskPile.push(topCard);
 			}
 
-      System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
+			System.out.println("\n--------------------------------------------------------------------------------------------------------------\n");
 			isAiTurn = !isAiTurn;
 		}
 

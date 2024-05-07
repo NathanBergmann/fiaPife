@@ -82,7 +82,6 @@ public class Combinations {
         // Itera sobre as combinações
         for (int selector : selectors ) {
             List<Cards> combinacao = combinatios.get(selector-1);
-            System.out.println(combinacao);
             // Verifica cada carta na combinação
             for (Cards carta : combinacao) {
                 // Se a carta já estiver no conjunto de cartas únicas, esta combinação não será válida
