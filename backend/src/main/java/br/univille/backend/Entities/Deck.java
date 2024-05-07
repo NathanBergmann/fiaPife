@@ -26,7 +26,7 @@ public class Deck {
                 String numero = carta.getString("numero");
                 String naipe = carta.getString("naipe");
                 int sequencia = carta.getInt("seq");
-                Cards newCard = new Cards(naipe, numero, sequencia);
+                Cards newCard = new Cards(naipe, numero, sequencia, 0);
                 addCard(newCard);
             }
         } catch (FileNotFoundException e) {
