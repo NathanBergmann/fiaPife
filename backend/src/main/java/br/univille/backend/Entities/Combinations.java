@@ -3,15 +3,18 @@ package br.univille.backend.entities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 
 public class Combinations {
     
     public static List<List<Cards>> generateCombinations(Cards[] array, int k) {
         List<List<Cards>> result = new ArrayList<>();
         List<Cards> combination = new ArrayList<>();
+
         generateCombinations(array, k, 0, combination, result);
         return result;
     }
@@ -26,6 +29,7 @@ public class Combinations {
             
             if (array[i] == null) {
                 continue;
+
             }
             
             combination.add(array[i]);
@@ -87,7 +91,6 @@ public class Combinations {
                     break;
                 }
             }
-            
         }
         return todasUnicas;
     }
