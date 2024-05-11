@@ -42,16 +42,15 @@ public class Main {
 
     	boolean isAiTurn = false;
 		AiChoice aiPlayer = new AiChoice();
-		Random random = new Random();
 		
     
 		while (!endGame){
 			if (isAiTurn){
-				int choiceBuy = aiPlayer.BuyFromDeskPileOrDeck(deck, deskPile, playerAI);
+				int choiceBuy = aiPlayer.BuyFromDeskPileOrDeck(deskPile, playerAI);
 				game.play(deck, deskPile, playerAI, true, choiceBuy);
 				//System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
-				int randomCardIndex = random.nextInt(9);
-				game.discardCard(deck, deskPile, playerAI, true, (randomCardIndex + 1));
+				int indexChoice = aiPlayer.descartCard(playerAI);
+				game.discardCard(deck, deskPile, playerAI, true, (indexChoice + 1));
 				//System.out.println("Cartas Player: " + playerAI.getName() + "\n"+ playerAI.viewAllCards()+"\n");
 				endGame = validator.isWinner(playerAI.getCards());
 				
